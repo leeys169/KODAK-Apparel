@@ -1,0 +1,1308 @@
+@charset "utf-8";
+
+/* =========================
+    공통
+========================= */
+:root{
+    --main-color: #111;
+    --point-color: #fdb512;
+    --light-gray: #f5f5f5;
+    --gray-1: #999;
+    --gray-2: #666;
+    --gray-3: #ddd;
+    --white: #fff;
+    --transition: 0.35s ease;
+}
+
+body{
+    color: var(--main-color);
+    background: var(--white);
+}
+
+#wrap{
+    overflow: hidden;
+}
+
+#container{
+    position: relative;
+}
+
+.inner{
+    width: 100%;
+    max-width: 1860px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.section-space{
+    padding-top: 110px;
+}
+
+.section-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 38px;
+}
+
+.section-title{
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+}
+
+.more-link{
+    font-size: 16px;
+    font-weight: 500;
+    color: #858586;
+}
+
+.more-link:hover{
+    opacity: 0.8;
+}
+
+/* =========================
+    1. HEADER
+========================= */
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 90px;
+    transition: var(--transition);
+    transform: translateY(0);
+}
+
+.header.hide{
+    transform: translateY(-100%);
+}
+
+.header.scrolled{
+    background: #ffffffcc;
+}
+
+/* 스크롤 시 글자 색 */
+.header.scrolled .gnb-link{
+    color:#111;
+}
+
+/* 아이콘 색 변경 */
+.header.scrolled .icon-white{
+    opacity:0;
+}
+
+.header.scrolled .icon-black{
+    opacity:1;
+}
+
+.dropdown-bg{
+    position:absolute;
+    top:90px;
+    left:0;
+    width:100%;
+    height:0;
+
+    background:#ffffffcc;
+    /* border-top:1px solid rgba(0,0,0,0.08); */
+
+    transition:height var(--transition);
+    z-index:10;
+}
+
+.header-inner{
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 90px;
+    padding: 0 70px;
+}
+
+.logo{
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+}
+
+.logo a{
+    display: block;
+}
+
+.gnb{
+    margin-left: 95px;
+}
+
+.gnb-list{
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.gnb-item{
+    position: relative;
+}
+
+.gnb-link{
+    display: block;
+    position: relative;
+    padding: 38px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    transition: var(--transition);
+}
+
+.header:hover .gnb-link:hover{
+    color: var(--point-color);
+}
+
+.header-util{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-left: auto;
+    margin-top: -20px;
+}
+
+.util-btn{
+    position: relative;
+    width: 28px;
+}
+
+.util-btn img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    transition: opacity var(--transition);
+}
+
+.util-btn .icon-black{
+    opacity: 0;
+}
+
+.sub-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 20;
+    min-width: max-content;
+    padding-top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.sub-menu-inner{
+    display: flex;
+    /* gap: 56px; */
+}
+
+.sub-title{
+    display: block;
+    margin-bottom: 16px;
+    font-size: 17px;
+    font-weight: 700;
+    /* color: #111; */
+    cursor: pointer;
+}
+
+.sub-depth li + li{
+    margin-top: 10px;
+}
+
+.sub-depth a{
+    font-size: 14px;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.sub-depth a:hover{
+    color: var(--point-color);
+    border-bottom: 1px solid #fdb512;
+}
+
+.sub-depth-row{
+    display: flex;
+    align-items: flex-start;
+    gap: 36px;
+}
+
+.sub-depth-row li a{
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.sub-depth-row li + li{
+    margin-top: 0;
+}
+
+.header:hover{
+    background: #ffffffcc;
+}
+
+.header:has(.gnb:hover) .dropdown-bg{
+    /* top: 100%; */
+    height:265px;
+}
+
+.header:hover .gnb-link{
+    color: #111;
+}
+
+.header:hover .icon-white{
+    opacity: 0;
+}
+
+.header:hover .icon-black{
+    opacity: 1;
+}
+
+.gnb-item:hover .sub-menu{
+    opacity: 1;
+    visibility: visible;
+}
+
+.sub-menu-men .sub-menu-inner,
+.sub-menu-women .sub-menu-inner{
+    gap: 35px;
+}
+
+/* =========================
+    1. MAIN VISUAL
+========================= */
+
+.main-visual{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.main-visual-swiper,
+.main-visual-swiper .swiper-wrapper,
+.main-visual-swiper .swiper-slide,
+.main-visual-item{
+    width: 100%;
+    height: 100%;
+}
+
+.main-visual-item{
+    position: relative;
+    display: block;
+}
+
+.main-visual-item > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-visual-item::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.158), rgba(0, 0, 0, 0.021));
+}
+
+.main-visual-text{
+    position: absolute;
+    top: 60%;
+    left: 6%;
+    z-index: 2;
+    color: #fff;
+    opacity:0;
+    transform:translateX(60px);
+    transition:all 0.9s ease;
+}
+
+.main-visual-text.active{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.main-title{
+    display: block;
+    font-size: 60px;
+    line-height: 1.4;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+.main-desc{
+    margin-top: 22px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* progress */
+.main-visual-control{
+    position: absolute;
+    bottom: 48px;
+    left: 6%;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+
+.main-progress-wrap{
+    position: relative;
+    width: 90vw;
+    max-width: 1500px;
+    height: 3px;
+}
+
+.main-progress-line{
+    position:absolute;
+    inset:0;
+    height:1px;
+    background:#fff;
+    /* opacity:0.4; */
+    z-index:1;
+}
+
+.main-pagination{
+    position:absolute !important;
+    inset:0;
+    display:flex;
+    z-index:2;
+}
+
+.main-pagination .swiper-pagination-bullet{
+    flex:1;
+    height:3px;
+    margin:0 !important;
+    background:transparent;
+    position:relative;
+    top: 7px;
+    opacity:1;
+}
+
+/* 자동스와이퍼 */
+.main-pagination .swiper-pagination-bullet-active::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:var(--point-color);
+}
+
+/* nav */
+.main-nav{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.main-prev,
+.main-next{
+    width: 38px;
+    height: 38px;
+}
+
+.main-prev img,
+.main-next img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* =========================
+    2. 해시태그 섹션
+========================= */
+
+.hashtag-section{
+    padding-top: 90px;
+    padding-bottom: 30px;
+}
+
+.hashtag-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hashtag-list li{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* min-width: 150px; */
+    height: 50px;
+    padding: 0 20px;
+    background: #f3f3f3;
+    font-size: 15px;
+    font-weight: 500;
+    color: #323335;
+    transition: var(--transition);
+}
+
+.hashtag-list a:hover{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.hashtag-list li:hover{
+    background-color: var(--point-color);
+}
+
+/* =========================
+    3. Weekly Best
+========================= */
+
+.weekly-best{
+    padding-top: 120px;
+}
+
+.weekly-best .swiper{
+    overflow: visible;
+}
+
+.weekly-best .section-head{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:40px;
+}
+
+.tab-menu{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.tab-btn{
+    height: 35px;
+    border: 1px solid #b6b6b7;
+    padding: 0 25px;
+    color: #b6b6b7;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.tab-btn.active,
+.tab-btn:hover{
+    background-color: var(--point-color);
+    border: 1px solid #111;
+    color: #111;
+}
+
+.tab-content{
+    display: none;
+}
+
+.tab-content.active{
+    display: block;
+}
+
+.product-list{
+    display:flex;
+    gap: 38px 24px;
+}
+
+.product-card{
+    position: relative;
+    width:350px;
+    flex-shrink: 0;
+}
+
+.rank{
+    position: relative;
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 2px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.rank strong{
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 0.9;
+}
+
+.rank::after{
+    content:"";
+    position:absolute;
+    left:0;
+    top:100%;
+    margin-top:6px;
+    width:36px;
+    height:3px;
+    background:var(--point-color);
+}
+
+.product-img{
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.product-img .img-default,
+.product-img .img-hover {
+    width: 100%;
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.product-img .img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.product-img:hover .img-default {
+    opacity: 0;
+}
+
+.product-img:hover .img-hover {
+    opacity: 1;
+}
+
+.size-list{
+    position: absolute;
+    left: 50%;
+    bottom: 35px;
+    z-index: 5;
+    display: flex;
+    gap: 6px;
+    transform: translateX(-50%) translateY(12px);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.size-list span{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 28px;
+    color: #b6b6b7;
+    padding: 0 8px;
+    backdrop-filter: blur(3px);
+    background: rgba(255, 255, 255, 0.767);
+    border: 1px solid #11111150;
+    font-size: 14px;
+    font-weight: 400px;
+}
+
+.product-img:hover .size-list{
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.product-info{
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.product-name{
+    min-height: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.45;
+    word-break: keep-all;
+}
+
+.price{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+}
+
+.price .sale{
+    color: #e33;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.price del{
+    color: #999;
+    font-size: 14px;
+}
+
+.price strong{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.color-list{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.color{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    /* border: 1px solid #ddd; */
+}
+
+.product-btn{
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+}
+
+.btn-wish,
+.btn-cart{
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: var(--transition);
+}
+
+.btn-wish{
+    background-image: url(../images/icon/icon_prd_wish.png);
+}
+
+.btn-wish:hover{
+    background-image: url(../images/icon/icon_prd_wish_hover.png);
+}
+
+.btn-cart{
+    background-image: url(../images/icon/icon_prd_cart.png);
+}
+
+.btn-cart:hover{
+    background-image: url(../images/icon/icon_prd_cart_on.png);
+}
+
+/* 컬러칩 */
+.black { background: #111; }
+.beige { background: #d2a57d; }
+.brown { background: #7a5843; }
+.skyblue { background: #14a5f0; }
+.red { background: #e2211c; }
+.purple { background: #521696; }
+.ivory { background: #f5efe1; }
+.mustard { background: #fcb60d; }
+.green { background: #166116; }
+.gray { background: #a7a7a7; }
+.blue { background: #3f62b3; }
+.navy { background: #263a67; }
+
+/* =========================
+    4. 이벤트 배너
+========================= */
+.event-banner-wrap {
+    display: flex;
+}
+
+.event-banner-item {
+    display: block;
+    flex: 1;
+    overflow: hidden;
+}
+
+.event-banner-item img {
+    width: 100%;
+}
+
+/* =========================
+    5. 이달의 코닥
+========================= */
+.month-kodak-head{
+    margin-bottom: 34px;
+}
+
+.month-kodak-wrap{
+    display: flex;
+    gap: 40px;
+}
+
+.month-kodak-main{
+    position: relative;
+    width: 40%;
+    min-height: 940px;
+    overflow: hidden;
+}
+
+.month-main-content{
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    /* transition: var(--transition); */
+}
+
+.month-main-content.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.month-main-content a,
+.month-main-content img{
+    width: 100%;
+    height: 100%;
+}
+
+.month-main-content img{
+    object-fit: cover;
+}
+
+.month-kodak-side{
+    width: calc(60% - 40px);
+}
+
+.month-tab-menu{
+    display: flex;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.month-product-list{
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px 20px;
+}
+
+.month-product-list.active{
+    display: grid;
+}
+
+.month-product-item{
+    display: flex;
+    flex-direction: column;
+}
+
+.month-product-thumb{
+    display: block;
+    overflow: hidden;
+    position:relative;
+}
+
+.month-product-thumb::after{
+    content:"";
+    position:absolute;
+    top: 0;
+    left: 0;
+    inset:0;
+    background:rgba(0, 0, 0, 0.03);
+}
+
+.month-product-thumb img{
+    width: 100%;
+    display:block;
+    position:relative;
+    transition: transform 0.45s ease;
+}
+
+.month-product-item:hover .month-product-thumb img{
+    transform: scale(1.04);
+}
+
+.month-product-info{
+    margin-top: 14px;
+}
+
+.month-product-name{
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 400;
+    word-break: keep-all;
+}
+
+.price-box{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    margin-top: 8px;
+}
+
+.discount-rate{
+    color: #e33;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.origin-price{
+    color: #999;
+    font-size: 14px;
+}
+
+.current-price{
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* =========================
+    6. Kodak Color
+========================= */
+.kodak-color .section-title {
+    margin-bottom: 30px;
+}
+
+.kodak-color-swiper{
+    overflow: visible;
+}
+
+.kodak-color .swiper-wrapper{
+    display:flex;
+}
+
+.kodak-color .swiper-slide{
+    width: 420px;
+    /* margin-right: 20px; */
+    /* js 넣을 때 spaceBetween:20으로 수정 */
+}
+
+.kodak-color .swiper-slide:hover .color-card-thumb img{
+    transform: scale(1.1);
+}
+
+.kodak-color .swiper-slide:hover .color-card-text{
+    color: #111;
+}
+
+.color-card{
+    display: block;
+    position:relative;
+}
+
+.color-card-thumb{
+    overflow: hidden;
+}
+
+.color-card-thumb img{
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.color-card-text{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: calc(100% - 40px);
+    padding: 10px 20px 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #fff;
+    transition: var(--transition);
+}
+
+.color-cont1{
+    background: rgba(240, 240, 240, 0.4);
+}
+.color-cont2{
+    background: rgba(255, 255, 0, 0.2)
+}
+.color-cont3{
+    background: rgba(0, 77, 193, 0.2);
+}
+.color-cont4{
+    background: rgba(255, 70, 70, 0.2);
+}
+.color-cont5{
+    background: rgba(0, 0, 0, 0.4);
+}
+.color-cont6{
+    background: rgba(128, 128, 128, 0.4);
+}
+
+.color-card-text strong{
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.color-card-text p{
+    font-size: 15px;
+    font-weight: 400;
+    padding: 5px 0 10px;
+}
+
+/* =========================
+    7. 이벤트 배너2
+========================= */
+
+.sub-visual-banner,
+.sub-visual-swiper,
+.sub-visual-swiper .swiper-wrapper,
+.sub-visual-swiper .swiper-slide,
+.sub-visual-item{
+    width: 100%;
+}
+
+.sub-visual-item{
+    position: relative;
+    display: block;
+}
+
+.sub-visual-item > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sub-visual-item::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.034);
+}
+
+.sub-visual-text{
+    position: absolute;
+    top: 50%;
+    left: 9%;
+    z-index: 2;
+    color: #fff;
+
+    opacity:0;
+    transform:translateX(60px) translateY(-50%);
+    transition:all 0.9s ease;
+}
+
+.sub-visual-text.active{
+    opacity:1;
+    transform:translateX(0) translateY(-50%);
+}
+
+.sub-visual-text strong{
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.sub-visual-text p{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    padding-top: 20px;
+}
+
+.sub-visual-control{
+    position: absolute;
+    bottom: 44px;
+    left: 9%;
+    z-index: 5;
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    gap: 26px;
+}
+
+.sub-progress-wrap{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 1500px;
+    height: 10px;
+    flex:1;
+    margin-right:40px;
+}
+
+.sub-progress-line{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    transform: translateY(-50%);
+}
+
+.sub-pagination{
+    position: static !important;
+    display: flex;
+    align-items: center;
+    /* width: 260px !important; */
+    height: 2px;
+}
+
+.sub-pagination .swiper-pagination-bullet{
+    flex: 1;
+    height: 3px;
+    margin: 0 !important;
+    border-radius: 0;
+    background: transparent;
+    opacity: 1;
+    position: relative;
+    width: 750px;
+}
+
+.sub-pagination .swiper-pagination-bullet-active::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:var(--point-color);
+    /* width: 750px; */
+}
+
+.sub-nav{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sub-prev,
+.sub-next{
+    width: 38px;
+    height: 38px;
+}
+
+/* =========================
+    8. Instagram
+========================= */
+.instagram-head{
+    text-align: center;
+}
+
+.section-title{
+    font-size: 36px;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    margin-bottom: 3px;
+    line-height: 1.2;
+}
+
+.instagram-id{
+    font-size: 13px;
+    color: rgb(145, 145, 145);
+    margin: 0 0 20px;
+    font-weight: 200;
+}
+
+.instagram-list{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.instagram-item{
+    overflow: hidden;
+}
+
+.instagram-link{
+    display: block;
+}
+
+.instagram-thumb{
+    position: relative;
+    overflow: hidden;
+}
+
+.instagram-thumb img{
+    width: 100%;
+    transition: var(--transition);
+}
+
+.instagram-head{
+    text-align: center;
+}
+
+.section-title{
+    font-size: 36px;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    margin-bottom: 3px;
+    line-height: 1.2;
+}
+
+.instagram-id{
+    font-size: 13px;
+    color: rgb(145, 145, 145);
+    margin: 0 0 20px;
+    font-weight: 200;
+}
+
+.instagram-list{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.instagram-item{
+    overflow: hidden;
+}
+
+.instagram-link{
+    display: block;
+}
+
+.instagram-thumb{
+    position: relative;
+    overflow: hidden;
+}
+
+.instagram-thumb img{
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.instagram-thumb:hover > img{
+    transform: scale(1.1);
+}
+
+.instagram-icon{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.instagram-more{
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+
+.more-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    font-size: 14px;
+    padding: 4px 15px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    transition: var(--transition);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+}
+
+.more-btn:hover{
+    border-color: #4096ff;
+    color: #4096ff;
+}
+
+/* =========================
+    9. Footer
+========================= */
+.footer{
+    background-color: #f3f3f3;
+    color: #858586;
+    padding: 80px 0 70px;
+    margin-top: 90px;
+}
+
+.footer-top{
+    margin-bottom: 22px;
+}
+
+.footer-logo img{
+    width: 200px; 
+}
+
+.footer-logo p{
+    font-size: 14px;
+    color: #111;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.footer-line{
+    width: 100%;
+    height: 1px;
+    background-color: #111;
+}
+
+.footer-content{
+    display: grid;
+    grid-template-columns: 1.8fr 0.6fr 0.8fr 0.8fr;
+    font-size: 13px;
+    font-weight: 100;
+    padding: 30px 0 0;
+}
+
+.footer-col strong,
+.footer-company a{
+    color: #111;
+    font-weight: 400;
+}
+
+.footer-link-list{
+    text-decoration: underline;
+    color: #111;
+    font-weight: 300;
+}
+
+.footer-desc{
+    margin-top: 15px;
+}
+
+.copyright{
+    margin-top: 18px;
+}
+
+.footer-link-list li + li{
+    margin-top: 8px;
+}
+
+.footer-sns {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.footer-sns a {
+    width: 34px;
+    height: 34px;
+}
+
+.footer-cs-box + .footer-cs-box,
+.footer-info-box + .footer-info-box {
+    margin-top: 30px;
+}
+
+/* =========================
+    Fixed Button
+========================= */
+.fixed-btn-wrap {
+    position: fixed;
+    right: 10px;
+    bottom: 15px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+}
+
+.fixed-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 60px;
+}
+
+.fixed-btn img{
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+/* 처음엔 안보임 */
+.top-btn{
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+/* 스크롤 내리면 나타나는 상태 */
+.top-btn.show{
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+
