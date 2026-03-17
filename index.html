@@ -20,6 +20,12 @@
         ========================== -->
         <header class="header">
             <div class="header-inner">
+                <!-- 반응형 햄버거 -->
+                <button class="hamburger-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <!-- 로고 -->
                 <h1 class="logo">
                     <a href="#">
@@ -205,6 +211,28 @@
             <div class="dropdown-bg"></div>
         </header>
 
+        <nav class="mobile-menu">
+            <button class="menu-close-btn">
+                ✕
+            </button>
+            <ul>
+                <li><a href="#">NEW</a></li>
+                <li><a href="#">MEN</a></li>
+                <li><a href="#">WOMEN</a></li>
+                <li><a href="#">KIDS</a></li>
+                <li><a href="#">ACC</a></li>
+                <li><a href="#">SHOES</a></li>
+                <li><a href="#">SALE</a></li>
+                <li><a href="#">SHOWCASE</a></li>
+            </ul>
+
+            <div class="mobile-menu-bottom">
+                <a href="#">회원가입</a>
+                <a href="#">로그인</a>
+                <a href="#">CS CENTER</a>
+            </div>
+        </nav>
+
         <main id="container">
 
         <!-- 메인비주얼 -->
@@ -252,20 +280,51 @@
                             </a>
                         </div>
                     </div>
+                </div>
 
-                    <div class="main-visual-control">
-                        <div class="main-progress-wrap">
-                            <div class="main-progress-line"></div>
-                            <div class="swiper-pagination main-pagination"></div>
+                <div class="main-visual-control">
+                    <div class="main-progress-wrap">
+                        <div class="main-progress-line"></div>
+                        <div class="swiper-pagination main-pagination"></div>
+                    </div>
+
+                    <div class="main-nav">
+                        <button type="button" class="main-prev">
+                            <img src="images/icon/icon_main_prev.png" alt="이전" />
+                        </button>
+                        <button type="button" class="main-next">
+                            <img src="images/icon/icon_main_next.png" alt="다음" />
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="main-visual-card-wrap">
+                    <div class="visual-card card1">
+                        <img src="images/mainbanner/mainbanner1m.jpg" alt="">
+                        <div class="card-text">
+                            <strong>THE COLOR FROM<br>EKTACHROME</strong>
+                            <p>엑타크롬 필름으로 완성한<br>코닥 RGB 데님 컬렉션</p>
                         </div>
-
-                        <div class="main-nav">
-                            <button type="button" class="main-prev">
-                                <img src="images/icon/icon_main_prev.png" alt="이전" />
-                            </button>
-                            <button type="button" class="main-next">
-                                <img src="images/icon/icon_main_next.png" alt="다음" />
-                            </button>
+                    </div>
+                    <div class="visual-card card2">
+                        <img src="images/mainbanner/mainbanner2m.jpg" alt="">
+                        <div class="card-text">
+                            <strong>RGB 스니커즈</strong>
+                            <p>코닥의 선명한 컬러 헤리티지를 담은<br>감각적인 스니커즈</p>
+                        </div>
+                    </div>
+                    <div class="visual-card card3">
+                        <img src="images/mainbanner/mainbanner3m.jpg" alt="">
+                        <div class="card-text">
+                            <strong>HERITAGE<br>COLOR STORY</strong>
+                            <p>필름 감성에서 시작된<br>코닥만의 컬러 포인트</p>
+                        </div>
+                    </div>
+                    <div class="visual-card card4">
+                        <img src="images/mainbanner/mainbanner4m.jpg" alt="">
+                        <div class="card-text">
+                            <strong>KODAK<br>STYLE PICK</strong>
+                            <p>이번 시즌 추천하는<br>코닥의 무드 있는 스타일</p>
                         </div>
                     </div>
                 </div>
@@ -276,17 +335,22 @@
             ========================== -->
             <section class="hashtag-section section-space">
                 <div class="inner">
-                    <ul class="hashtag-list">
-                        <li><a href="#"># 에어홀 워싱 후드</a></li>
-                        <li><a href="#"># 스노우 워싱</a></li>
-                        <li><a href="#"># 씨네리 그래픽</a></li>
-                        <li><a href="#"># RGB 스니커즈</a></li>
-                        <li><a href="#"># 멜로우 시리즈</a></li>
-                        <li><a href="#"># RGB 데님</a></li>
-                        <li><a href="#"># 차메라 키링</a></li>
-                    </ul>
+                    <div class="swiper hashtag-swiper">
+                        <ul class="hashtag-list swiper-wrapper">
+                            <li class="swiper-slide"><a href="#"># 에어홀 워싱 후드</a></li>
+                            <li class="swiper-slide"><a href="#"># 스노우 워싱</a></li>
+                            <li class="swiper-slide"><a href="#"># 씨네리 그래픽</a></li>
+                            <li class="swiper-slide"><a href="#"># RGB 스니커즈</a></li>
+                            <li class="swiper-slide"><a href="#"># 멜로우 시리즈</a></li>
+                            <li class="swiper-slide"><a href="#"># RGB 데님</a></li>
+                            <li class="swiper-slide"><a href="#"># 차메라 키링</a></li>
+                        </ul>
+                    </div>
                 </div>
             </section>
+
+            <!-- 모바일 구분선 -->
+            <div class="section-divider"></div>
 
             <!-- =========================
                 3. Weekly Best
@@ -512,7 +576,7 @@
                                     </a>
 
                                     <div class="product-info">
-                                        <p class="product-name">코닥컴퍼니 클린코튼 후드형 자켓 우먼 IVORY</p>
+                                        <p class="product-name"> 클린코튼 후드형 자켓 우먼 IVORY</p>
 
                                         <div class="price">
                                             <strong>209,000원</strong>
@@ -1101,227 +1165,244 @@
 
                             <!-- 1 -->
                             <div class="month-product-list active" id="month-list-01">
-                                <!-- 1-1 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/rgb_sub1.jpg" alt="RGB 에어로쿨 긴팔 티셔츠 화이트" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">RGB 에어로쿨 긴팔 티셔츠 WHITE</p>
-                                        <div class="price-box">
-                                            <span class="discount-rate">5%</span>
-                                            <del class="origin-price">89,000원</del>
-                                            <strong class="current-price">84,550원</strong>
+                                <div class="swiper month-swiper">
+                                    <div class="swiper-wrapper">
+                                        <!-- 1-1 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/rgb_sub1.jpg" alt="RGB 에어로쿨 긴팔 티셔츠 화이트" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">RGB 에어로쿨 긴팔 티셔츠 WHITE</p>
+                                                <div class="price-box">
+                                                    <span class="discount-rate">5%</span>
+                                                    <del class="origin-price">89,000원</del>
+                                                    <strong class="current-price">84,550원</strong>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                                <!-- 1-2 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/rgb_sub2.jpg" alt="RGB 에어로쿨 긴팔 티셔츠 블랙" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">RGB 에어로쿨 긴팔 티셔츠 BLACK</p>
-                                        <div class="price-box">
-                                            <span class="discount-rate">5%</span>
-                                            <del class="origin-price">89,000원</del>
-                                            <strong class="current-price">84,550원</strong>
+                                        <!-- 1-2 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/rgb_sub2.jpg" alt="RGB 에어로쿨 긴팔 티셔츠 블랙" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">RGB 에어로쿨 긴팔 티셔츠 BLACK</p>
+                                                <div class="price-box">
+                                                    <span class="discount-rate">5%</span>
+                                                    <del class="origin-price">89,000원</del>
+                                                    <strong class="current-price">84,550원</strong>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                                <!-- 1-3 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/rgb_sub3.jpg" alt="RGB 에어로쿨 반팔 티셔츠 화이트" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">RGB 에어로쿨 반팔 티셔츠 WHITE</p>
-                                        <div class="price-box">
-                                            <span class="discount-rate">5%</span>
-                                            <del class="origin-price">59,000원</del>
-                                            <strong class="current-price">56,050원</strong>
+                                        <!-- 1-3 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/rgb_sub3.jpg" alt="RGB 에어로쿨 반팔 티셔츠 화이트" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">RGB 에어로쿨 반팔 티셔츠 WHITE</p>
+                                                <div class="price-box">
+                                                    <span class="discount-rate">5%</span>
+                                                    <del class="origin-price">59,000원</del>
+                                                    <strong class="current-price">56,050원</strong>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                                <!-- 1-4 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/rgb_sub4.jpg" alt="RGB 에어로쿨 반팔 티셔츠 블루" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">RGB 에어로쿨 반팔 티셔츠 BLUE</p>
-                                        <div class="price-box">
-                                            <strong class="current-price">56,050원</strong>
+                                        <!-- 1-4 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/rgb_sub4.jpg" alt="RGB 에어로쿨 반팔 티셔츠 블루" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">RGB 에어로쿨 반팔 티셔츠 BLUE</p>
+                                                <div class="price-box">
+                                                    <strong class="current-price">56,050원</strong>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                                <!-- 1-5 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/rgb_sub5.jpg" alt="RGB 에어로쿨 반팔 티셔츠 그레이" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">RGB 에어로쿨 반팔 티셔츠 M.GREY</p>
-                                        <div class="price-box">
-                                            <strong class="current-price">56,050원</strong>
+                                        <!-- 1-5 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/rgb_sub5.jpg" alt="RGB 에어로쿨 반팔 티셔츠 그레이" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">RGB 에어로쿨 반팔 티셔츠 GREY</p>
+                                                <div class="price-box">
+                                                    <strong class="current-price">56,050원</strong>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                                <!-- 1-6 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/rgb_sub6.jpg" alt="RGB 에어로쿨 반팔 티셔츠 레드" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">RGB 에어로쿨 반팔 티셔츠 RED</p>
-                                        <div class="price-box">
-                                            <strong class="current-price">56,050원</strong>
+                                        <!-- 1-6 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/rgb_sub6.jpg" alt="RGB 에어로쿨 반팔 티셔츠 레드" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">RGB 에어로쿨 반팔 티셔츠 RED</p>
+                                                <div class="price-box">
+                                                    <strong class="current-price">56,050원</strong>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="month-progress"></div>
+                            </div> 
+                            
 
                             <!-- 2 -->
                             <div class="month-product-list" id="month-list-02">
-                                <!-- 2-1 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/mellow_sub1.jpg" alt="멜로우 오버핏 맨투맨 차콜" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">멜로우 오버핏 맨투맨 CHARCOAL</p>
-                                        <div class="price-box"><strong class="current-price">129,000원</strong></div>
-                                    </div>
-                                </div>
-                                
-                                <!-- 2-2 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/mellow_sub2.jpg" alt="멜로우 오버핏 맨투맨 라이트그레이" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">멜로우 오버핏 맨투맨 LIGHT GREY</p>
-                                        <div class="price-box"><strong class="current-price">129,000원</strong></div>
-                                    </div>
-                                </div>
+                                <div class="swiper month-swiper">
+                                    <div class="swiper-wrapper">
+                                        <!-- 2-1 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/mellow_sub1.jpg" alt="멜로우 오버핏 맨투맨 차콜" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">멜로우 오버핏 맨투맨 CHARCOAL</p>
+                                                <div class="price-box"><strong class="current-price">129,000원</strong></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 2-2 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/mellow_sub2.jpg" alt="멜로우 오버핏 맨투맨 라이트그레이" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">멜로우 오버핏 맨투맨 LIGHT GREY</p>
+                                                <div class="price-box"><strong class="current-price">129,000원</strong></div>
+                                            </div>
+                                        </div>
 
-                                <!-- 2-3 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/mellow_sub3.jpg" alt="멜로우 오버핏 맨투맨 라임" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">멜로우 오버핏 맨투맨 LIME</p>
-                                        <div class="price-box"><strong class="current-price">129,000원</strong></div>
-                                    </div>
-                                </div>
+                                        <!-- 2-3 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/mellow_sub3.jpg" alt="멜로우 오버핏 맨투맨 라임" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">멜로우 오버핏 맨투맨 LIME</p>
+                                                <div class="price-box"><strong class="current-price">129,000원</strong></div>
+                                            </div>
+                                        </div>
 
-                                <!-- 2-4 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/mellow_sub4.jpg" alt="멜로우 오버핏 후드집업 라임" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">멜로우 오버핏 후드집업 LIME</p>
-                                        <div class="price-box"><strong class="current-price">149,000원</strong></div>
-                                    </div>
-                                </div>
+                                        <!-- 2-4 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/mellow_sub4.jpg" alt="멜로우 오버핏 후드집업 라임" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">멜로우 오버핏 후드집업 LIME</p>
+                                                <div class="price-box"><strong class="current-price">149,000원</strong></div>
+                                            </div>
+                                        </div>
 
-                                <!-- 2-5 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/mellow_sub5.jpg" alt="멜로우 와이드 밴딩 팬츠 차콜" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">멜로우 와이드 밴딩 팬츠 CHARCOAL</p>
-                                        <div class="price-box"><strong class="current-price">129,000원</strong></div>
-                                    </div>
-                                </div>
+                                        <!-- 2-5 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/mellow_sub5.jpg" alt="멜로우 와이드 밴딩 팬츠 차콜" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">멜로우 와이드 밴딩 팬츠 CHARCOAL</p>
+                                                <div class="price-box"><strong class="current-price">129,000원</strong></div>
+                                            </div>
+                                        </div>
 
-                                <!-- 2-6 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/mellow_sub6.jpg" alt="멜로우 와이드 밴딩 팬츠 라이트그레이" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">멜로우 와이드 밴딩 팬츠 L.GREY</p>
-                                        <div class="price-box"><strong class="current-price">129,000원</strong></div>
+                                        <!-- 2-6 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/mellow_sub6.jpg" alt="멜로우 와이드 밴딩 팬츠 라이트그레이" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">멜로우 와이드 밴딩 팬츠 L.GREY</p>
+                                                <div class="price-box"><strong class="current-price">129,000원</strong></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="month-progress"></div>
+                            </div>     
 
                             <!-- 3 -->
                             <div class="month-product-list" id="month-list-03">
-                                <!-- 3-1 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/washing_sub1.jpg" alt="스노우 워싱 그래픽 후드 티셔츠" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">스노우 워싱 그래픽 후드 티셔츠 BLACK</p>
-                                        <div class="price-box"><strong class="current-price">139,000원</strong></div>
-                                    </div>
-                                </div>
-                                
-                                <!-- 3-2 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/washing_sub2.jpg" alt="스노우 워싱 그래픽 후드 티셔츠 RED" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">스노우 워싱 그래픽 후드 티셔츠 RED</p>
-                                        <div class="price-box"><strong class="current-price">139,000원</strong></div>
+                                <div class="swiper month-swiper">
+                                    <div class="swiper-wrapper">
+                                        <!-- 3-1 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/washing_sub1.jpg" alt="스노우 워싱 그래픽 후드 티셔츠" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">스노우 워싱 그래픽 후드 티셔츠 BLACK</p>
+                                                <div class="price-box"><strong class="current-price">139,000원</strong></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 3-2 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/washing_sub2.jpg" alt="스노우 워싱 그래픽 후드 티셔츠 RED" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">스노우 워싱 그래픽 후드 티셔츠 RED</p>
+                                                <div class="price-box"><strong class="current-price">139,000원</strong></div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 3-3 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/washing_sub3.jpg" alt="스노우 워싱 그래픽 후드 티셔츠 MELANGE" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">스노우 워싱 그래픽 후드 티셔츠 MELANGE</p>
+                                                <div class="price-box"><strong class="current-price">139,000원</strong></div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 3-4 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/washing_sub4.jpg" alt="스노우 워싱 스트레이트 팬츠 BLACK" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">스노우 워싱 스트레이트 팬츠 BLACK</p>
+                                                <div class="price-box"><strong class="current-price">129,000원</strong></div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 3-5 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/washing_sub5.jpg" alt="스노우 워싱 스트레이트 팬츠 RED" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">스노우 워싱 스트레이트 팬츠 RED</p>
+                                                <div class="price-box"><strong class="current-price">129,000원</strong></div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 3-6 -->
+                                        <div class="swiper-slide month-product-item">
+                                            <a href="#" class="month-product-thumb">
+                                                <img src="images/section2/washing_sub6.jpg" alt="스노우 워싱 스트레이트 팬츠 MELANGE" />
+                                            </a>
+                                            <div class="month-product-info">
+                                                <p class="month-product-name">스노우 워싱 스트레이트 팬츠 MELANGE</p>
+                                                <div class="price-box"><strong class="current-price">129,000원</strong></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- 3-3 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/washing_sub3.jpg" alt="스노우 워싱 그래픽 후드 티셔츠 MELANGE" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">스노우 워싱 그래픽 후드 티셔츠 MELANGE</p>
-                                        <div class="price-box"><strong class="current-price">139,000원</strong></div>
-                                    </div>
-                                </div>
-
-                                <!-- 3-4 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/washing_sub4.jpg" alt="스노우 워싱 스트레이트 팬츠 BLACK" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">스노우 워싱 스트레이트 팬츠 BLACK</p>
-                                        <div class="price-box"><strong class="current-price">129,000원</strong></div>
-                                    </div>
-                                </div>
-
-                                <!-- 3-5 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/washing_sub5.jpg" alt="스노우 워싱 스트레이트 팬츠 RED" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">스노우 워싱 스트레이트 팬츠 RED</p>
-                                        <div class="price-box"><strong class="current-price">129,000원</strong></div>
-                                    </div>
-                                </div>
-
-                                <!-- 3-6 -->
-                                <div class="month-product-item">
-                                    <a href="#" class="month-product-thumb">
-                                        <img src="images/section2/washing_sub6.jpg" alt="스노우 워싱 스트레이트 팬츠 MELANGE" />
-                                    </a>
-                                    <div class="month-product-info">
-                                        <p class="month-product-name">스노우 워싱 스트레이트 팬츠 MELANGE</p>
-                                        <div class="price-box"><strong class="current-price">129,000원</strong></div>
-                                    </div>
-                                </div>
+                                <div class="month-progress"></div>
                             </div>
                         </div>
                     </div>
@@ -1429,7 +1510,8 @@
 
                         <div class="swiper-slide">
                             <a href="#" class="sub-visual-item">
-                                <img src="images/event/banner4.jpg" alt="셋업 10% 할인 배너" />
+                                <img src="images/event/banner4.jpg" class="pc-img" alt="셋업 10% 할인 배너" />
+                                <img src="images/event/banner4_m.jpg" class="mo-img" alt="셋업 10% 할인 배너">
                                 <div class="sub-visual-text">
                                     <strong>SET UP 10% OFF</strong>
                                     <p>일상에 가장 편안한 선택, 이지 셋업</p>
@@ -1439,7 +1521,8 @@
 
                         <div class="swiper-slide">
                             <a href="#" class="sub-visual-item">
-                                <img src="images/event/banner3.jpg" alt="학생 직장인 백팩 추천배너" />
+                                <img src="images/event/banner3.jpg" class="pc-img" alt="학생 직장인 백팩 추천배너" />
+                                <img src="images/event/banner3_m.jpg" class="mo-img" alt="학생 직장인 백팩 추천배너">
                                 <div class="sub-visual-text">
                                     <strong>학생부터 직장인까지, 모두를 위한 백팩 추천</strong>
                                     <p>스타일과 실용성을 모두 담은 백팩</p>
@@ -1565,7 +1648,7 @@
                     <div class="footer-col footer-company">
                         <address>
                             <p>CEO. Jun Kwon Lee</p>
-                            <p>Business License No. 788-81-01239 <a href="#">[사업자정보확인]</a></p>
+                            <p>Business License No. 788-81-01239 &nbsp<a href="#">[사업자정보확인]</a></p>
                             <p>Mail Order Business Registration No. 2019-성남분당B-0523</p>
                             <p>Address. 801 PDC Building A-Dong 8F, 242, Pangyo-ro, Bundang-gu, Seongnam-si, Gyeonggi, Korea</p>
                         </address>

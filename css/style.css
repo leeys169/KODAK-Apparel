@@ -20,7 +20,7 @@ body{
 }
 
 #wrap{
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 #container{
@@ -65,6 +65,35 @@ body{
 /* =========================
     1. HEADER
 ========================= */
+
+/* 반응형햄버거 */
+.hamburger-btn{
+    display:none;
+    position:absolute;
+    left:30px;
+    top:50%;
+    transform:translateY(-50%);
+    width:28px;
+    height:20px;
+    border:none;
+    background:none;
+    cursor:pointer;
+}
+
+.hamburger-btn span{
+    display:block;
+    width:100%;
+    height:2px;
+    background:#111;
+}
+
+.hamburger-btn span + span{
+    margin-top:6px;
+}
+
+.mobile-menu{
+    display: none;
+}
 
 .header{
     position: fixed;
@@ -281,6 +310,7 @@ body{
     position: relative;
     width: 100%;
     height: 100vh;
+    background:#fff;
 }
 
 .main-visual-swiper,
@@ -411,6 +441,65 @@ body{
     object-fit: contain;
 }
 
+/* 모바일 */
+.main-visual-card-wrap{
+    display:none;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.visual-card{
+    position:absolute;
+    top:57%;
+    left:50%;
+    width:90%;
+    height:100%;
+    transform:translate(-50%, -50%);
+    overflow:hidden;
+    border-radius:16px;
+    /* box-shadow:0 20px 40px rgba(0,0,0,0.15); */
+    transition: transform 1s cubic-bezier(.22,.61,.36,1), opacity 0.4s;
+    will-change: transform;
+    opacity:0; 
+}
+
+.visual-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    pointer-events: none;
+}
+
+.visual-card,
+.visual-card img,
+.card-text{
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.card-text{
+    position:absolute;
+    left:5%;
+    bottom:5%;
+    color:#fff;
+    z-index:2;
+    pointer-events: none;
+}
+
+.card-text strong{
+    display:block;
+    font-size:50px;
+    font-weight:800;
+    line-height:1.3;
+}
+
+.card-text p{
+    margin-top:12px;
+    font-size:20px;
+}
+
 /* =========================
     2. 해시태그 섹션
 ========================= */
@@ -425,6 +514,10 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+}
+
+.hashtag-list .swiper-slide{
+    width:auto;
 }
 
 .hashtag-list li{
@@ -506,7 +599,7 @@ body{
 
 .product-card{
     position: relative;
-    width:350px;
+    max-width:350px;
     flex-shrink: 0;
 }
 
@@ -603,11 +696,15 @@ body{
 }
 
 .product-name{
-    min-height: 30px;
+    min-height: 46px;
     font-size: 16px;
     font-weight: 700;
     line-height: 1.45;
     word-break: keep-all;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
 }
 
 .price{
@@ -700,6 +797,7 @@ body{
 /* =========================
     4. 이벤트 배너
 ========================= */
+
 .event-banner-wrap {
     display: flex;
 }
@@ -712,6 +810,10 @@ body{
 
 .event-banner-item img {
     width: 100%;
+}
+
+.event-swiper{
+    overflow:hidden;
 }
 
 /* =========================
@@ -753,7 +855,10 @@ body{
 }
 
 .month-main-content img{
-    object-fit: cover;
+    /* object-fit: cover; */
+    width:100%;
+    height:auto;
+    object-fit:contain;
 }
 
 .month-kodak-side{
@@ -768,12 +873,22 @@ body{
 
 .month-product-list{
     display: none;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px 20px;
 }
 
 .month-product-list.active{
-    display: grid;
+    display:block;
+}
+
+/* PC에서는 grid */
+.month-product-list.active .swiper-wrapper{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px 20px;
+}
+
+/* swiper 기능 막기 */
+.month-product-list .swiper{
+    overflow:visible;
 }
 
 .month-product-item{
@@ -935,6 +1050,13 @@ body{
     7. 이벤트 배너2
 ========================= */
 
+.pc-img { 
+    display: block; 
+}
+.mo-img{ 
+    display: none; 
+}
+
 .sub-visual-banner,
 .sub-visual-swiper,
 .sub-visual-swiper .swiper-wrapper,
@@ -942,6 +1064,8 @@ body{
 .sub-visual-item{
     width: 100%;
 }
+
+
 
 .sub-visual-item{
     position: relative;
@@ -1006,7 +1130,7 @@ body{
     display: flex;
     align-items: center;
     position: relative;
-    width: 1500px;
+    width:90%;
     height: 10px;
     flex:1;
     margin-right:40px;
@@ -1071,7 +1195,7 @@ body{
 .section-title{
     font-size: 36px;
     letter-spacing: 1.3px;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 3px;
     line-height: 1.2;
 }
@@ -1114,7 +1238,7 @@ body{
 .section-title{
     font-size: 36px;
     letter-spacing: 1.3px;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 3px;
     line-height: 1.2;
 }
@@ -1303,6 +1427,829 @@ body{
 }
 
 
+/* ====================================== */
+/* ==============반응형=================== */
+
+/* 1400px */
+@media (max-width:1400px){
+    /* -------------------------메인비주얼 */
+    .main-visual{
+        height: 75vh;
+    }
+
+    .main-visual-text{
+        top: 50%;
+    }
+
+    .main-progress-wrap{
+        width: 80vw;
+    }
+
+    /* --------------------------Weekly Best */
+    .product-card{
+        max-width:240px;
+        min-height:450px;
+    }
+
+    .product-list{
+        gap: 30px 17px;
+    }
+
+    .btn-wish,
+    .btn-cart{
+        width:28px;
+        height:28px;
+    }
+
+    .product-btn{
+        bottom:50px;
+        right:6px;
+        padding:6px;
+    }
+
+    .size-list span{
+        min-width:40px;
+        height:24px;
+        font-size:12px;
+    }
+
+    .product-name{
+        max-width: 195px;
+        min-height:42px;
+        word-break: break-word;
+    }
+
+    /* 이벤트배너 */
+    .event-banner-wrap{
+        justify-content: center;
+    }
+
+    .event-banner-item{
+        flex:none;
+        max-width:650px;
+    }
+
+    /* --------------------이달의코닥 */
+
+    .month-kodak .inner{
+        max-width:1400px;
+    }
+
+    .month-kodak-main{
+        min-height:670px;
+    }
+
+    .month-kodak-wrap{
+        gap:30px;
+    }
+
+    .month-kodak-side{
+        /* margin-top:10px; */
+    }
+
+    .month-kodak-head .more-link{
+        margin-right:20px;
+    }
+
+    .month-kodak-head {
+        margin-bottom: 15px;
+    }
+
+    /* --------------------이벤트배너2 */
+    .sub-progress-wrap{
+        width:1000px;
+        margin:0 auto;
+    }
+}
+
+
+/* 1130px */
+@media (max-width:1130px){
+    /* -------------------------헤더 */
+    .header{
+        background:#fff;
+    }
+
+    .header:hover{
+        background:#fff;
+    }
+
+    .header-inner{
+        padding:0 20px;
+    }
+
+    .hamburger-btn{
+        display:block;
+    }
+
+    .gnb,
+    .dropdown-bg,
+    .sub-menu{
+        display:none;
+    }
+
+    .logo{
+        position:absolute;
+        left:50%;
+        transform:translateX(-50%);
+        width:42px;
+        height:42px;
+    }
+
+    .header-util{
+        margin-left:auto;
+    }
+
+    .header .util-btn .icon-white{
+        opacity:0 !important;
+        display:none;
+    }
+
+    .header .util-btn .icon-black{
+        opacity:1 !important;
+        display:block;
+    }
+
+    .mypage-btn{
+        display:none;
+    }
+
+    .header:hover .util-btn .icon-white{
+        opacity:0 !important;
+        display:none;
+    }
+
+    .header:hover .util-btn .icon-black{
+        opacity:1 !important;
+        display:block;
+    }
+
+    /* -------------------------모바일 메뉴 */
+    .mobile-menu{
+        display: block;
+        position:fixed;
+        top:0;
+        left:-100%;
+        width:320px;
+        height:100vh;
+        background:#fff;
+        padding:90px 30px;
+        transition:0.6s;
+        z-index:1000;
+    }
+
+    .mobile-menu.active{
+        left:0;
+    }
+
+    .mobile-menu ul{
+        display:flex;
+        flex-direction:column;
+        gap:28px;
+    }
+
+    .mobile-menu a{
+        font-size:20px;
+        font-weight:700;
+    }
+
+    .mobile-menu-bottom{
+        margin-top:60px;
+        display:flex;
+        flex-direction:column;
+        gap:14px;
+    }
+
+    .mobile-menu-bottom a{
+        font-size:14px;
+        font-weight:500;
+    }
+
+    .menu-close-btn{
+        position:absolute;
+        top:30px;
+        right:25px;
+        font-size:28px;
+        border:none;
+        background:none;
+        cursor:pointer;
+    }
+
+    /* ---------------------메인비주얼 */
+    .main-visual{
+        height:120vh;
+        margin-bottom:270px;
+    }
+
+    .main-visual-swiper{
+        display:none !important;
+    }
+
+    .main-visual-card-wrap{
+        position:relative;
+        display:block;
+        width:100%;
+        height:120%;
+        perspective:1200px;
+        transform-style:preserve-3d;
+    }
+
+    .visual-card img{
+        pointer-events:none;
+    }
+
+    .card1{
+        z-index:4;
+        opacity:1;
+        transform:translate(-50%, -49%) scale(1);
+    }
+
+    .card2{
+        z-index:3;
+        opacity:0.85;
+        transform:translate(-50%, -55%) rotate(-4deg) scale(0.95);
+    }
+
+    .card3{
+        z-index:2;
+        opacity:0.6;
+        transform:translate(-50%, -50%) scale(0.9);
+    }
+
+    .card4{
+        z-index:1;
+        opacity:0.35;
+        transform:translate(-50%, -52%) scale(0.85);
+    }
+
+    .main-visual-control{
+        display: none;
+    }
+
+    /* --------------------해시태그 */
+    .hashtag-section .inner{
+        padding-top: 40px;
+    }
+
+    .hashtag-list{
+        flex-wrap:nowrap;        
+        justify-content:flex-start; 
+        gap:0;
+        padding-left:24px;
+    }
+
+    .hashtag-list li{
+        padding: 0 190px;
+        height: 35px;
+        font-size: 14px;
+        white-space: nowrap;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .hashtag-list .swiper-slide{
+        flex-shrink:0; 
+        width:fit-content;
+        margin-right:20px;
+        cursor: pointer;
+    }
+    /* 구분선 */
+    .section-divider{
+        height:4px;
+        background:#f5f5f5;
+        border-top:1px solid #e5e5e5;
+        margin-top: -20px;
+    }
+
+    /* Weekly Best */
+    .weekly-best{
+        padding-top: 50px;
+    }
+
+    .section-title{
+        font-size: 26px;
+        letter-spacing: -0.5px;
+    }
+
+    .weekly-best .section-head{
+        gap: 20px;
+    }
+
+    .rank strong{
+        font-size:18px;
+    }
+
+    .rank{
+        font-size: 0;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        z-index: 5;
+    }
+
+    .rank strong{
+        font-size: 16px;
+    }
+
+    .rank::after{
+        width: 10px;
+    }
+
+    .product-card{
+        max-width: none;
+    }
+
+    .product-img::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        inset:0;
+        background:rgba(0, 0, 0, 0.03);
+    }
+
+    .product-btn{
+        top: 10px;
+        right: 10px;
+        bottom: auto;
+    }
+
+    .btn-wish,
+    .btn-cart{
+        width:26px;
+        height:26px;
+    }
+
+    .product-info{
+        padding:12px 6px;
+    }
+
+    .product-name{
+        font-size:14px;
+        min-height: 0;
+    }
+    
+    .size-list span{
+        min-width: 70px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .img-hover{
+        display:none;
+    }
+
+    .product-img:hover .img-default{
+        opacity:1;
+    }
+
+    .product-img img{
+        transition: transform .4s ease;
+    }
+
+    .product-img:hover img{
+        transform: scale(1.2);
+        /* opacity: 0.8; */
+    }
+
+    .product-img:hover .img-default{
+        opacity: 0.6;
+    }
+
+    .weekly-best .product-info{
+        margin-top: 0;
+    }
+
+    /* ---------------이벤트배너 */
+    .event-banner{
+        display: none;
+    }
+
+    /* ----------------이달의코닥 */
+    .month-kodak{
+        overflow-x: hidden;
+    }
+
+    .month-main-content{
+        position: absolute; 
+        inset:0;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        padding: 20px 20px 0;
+    }
+
+    .month-kodak .inner{
+        max-width: none;
+        padding: 0;
+    }
+
+    .month-kodak .section-head{
+        max-width:none;
+    }
+
+    .month-kodak-head .more-link{
+        font-size: 14px;
+    }
+
+    .month-kodak-head,
+    .month-tab-menu{
+        padding-left: 40px;
+    }
+
+    .month-kodak-wrap{
+        display:flex;
+        flex-direction:column;
+        gap:0;
+        background:#000;
+    }
+
+    .month-kodak-main{
+        position: relative;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 690 / 600;
+        left: auto;
+        transform: none;
+        min-height: 0;
+    }
+
+    .month-main-content img{
+        width:100%;
+        height:100%;
+        object-fit:contain;
+    }
+
+
+    .month-kodak-side{
+        width:100%;
+        padding:10px 0 30px;
+        display:flex;
+        flex-direction:column;
+    }
+
+    .month-tab-menu{
+        margin-bottom:10px;
+    }
+
+    /* 탭 active된 리스트만 보이기 */
+    .month-product-list{
+        display:none !important;
+        width:100%;
+        padding:0 20px;
+    }
+
+    .month-product-list.active{
+        display:block !important;
+    }
+
+    /* 기존 PC grid 완전 해제 */
+    .month-product-list.active .swiper{
+        display:block;
+        width:100%;
+        overflow:hidden;
+    }
+
+    .month-product-list.active .swiper-wrapper{
+        display:flex !important;
+        flex-wrap:nowrap !important;
+        gap:0 !important;
+    }
+
+    .month-product-list.active .swiper-slide{
+        flex-shrink:0;
+        height:auto;
+    }
+
+    .month-swiper .swiper-slide{
+        box-sizing:border-box;
+    }
+
+    .month-product-item{
+        width: auto;
+    }
+
+    .month-product-thumb{
+        display:block;
+    }
+
+    .month-product-thumb img{
+        width:100%;
+        display:block;
+    }
+
+    .month-product-info{
+        background:#fff;
+        padding:14px 16px;
+        margin-top:0;
+    }
+
+    .month-product-name,
+    .current-price,
+    .origin-price{
+        color:#000;
+    }
+
+    .month-progress{
+        position:relative;
+        height:3px;
+        width: 100%;
+        margin:30px auto 0; 
+        background:#ffffff;
+        overflow:hidden;
+    }
+
+    .month-progress .swiper-scrollbar-drag{
+        background:#fcb60d;
+        height:100%;
+    }
+    
+    /* ----------------코닥컬러 */
+    .color-card-thumb{
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+    }
+
+    .color-card-thumb img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .swiper-slide:hover .color-card-text{
+        transform: translateY(-20px);
+    }
+
+    .swiper-slide:hover img{
+        filter: brightness(1.02);
+    }
+
+    /* ----------------이벤트배너2 */
+    .pc-img { 
+        display: none; 
+    }
+
+    .mo-img { 
+        display: block; 
+    }
+
+    .sub-visual-swiper{
+        overflow: visible;
+    }
+
+    .sub-visual-swiper .swiper-wrapper{
+        display: block;
+    }
+
+    .sub-visual-swiper .swiper-slide{
+        width: 100%;
+    }
+
+    /* 이미지 + 텍스트 구조 변경 */
+    .sub-visual-item{
+        display: block;
+    }
+
+    .sub-visual-item > img{
+        object-fit: cover;
+        object-position: 100% center;
+    }
+
+    /* 텍스트 아래로 이동 */
+    .sub-visual-text{
+        position: static;
+        transform: none;
+        opacity: 1;
+
+        color: #111;
+        padding: 20px 15px 50px;
+    }
+
+    /* hover/active 효과 제거 */
+    .sub-visual-text.active{
+        transform: none;
+    }
+
+    /* 컨트롤 숨기기 */
+    .sub-visual-control{
+        display: none;
+    }
+
+    .sub-visual-item::after{
+        display: none;
+    }
+
+    .section-space{
+        padding-top: 50px;
+    }
+
+    .sub-visual-text strong{
+        font-size: 18px;
+    }
+
+    .sub-visual-text p{
+        font-size: 14px;
+        color: #565556;
+        font-weight: 400;
+    }
+
+    /* -----------인스타 */
+    .instagram-head .section-title{
+        font-size: 36px;
+        letter-spacing: 1.1px;
+        font-weight: 700;
+    }
+
+    /* ----------------푸터 */
+    .footer{
+        padding: 30px;
+    }
+
+    .footer .inner{
+        padding: 0;
+    }
+
+    .footer-content{
+        display: block;
+        padding-top: 25px;
+    }
+
+    .footer-company{
+        margin-bottom: 30px;
+        font-size: 11px;
+    }
+    .footer-policy,
+    .footer-cs{
+        display: inline-block;
+        vertical-align: top;
+        width: 48%;
+    }
+
+    .footer-cs{
+        text-align: left;
+    }
+
+    .footer-info{
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .footer-sns{
+        margin-top: 30px;
+    }
+
+    .footer-cs-box + .footer-cs-box{
+        margin-top: 20px;
+    }
+
+    .footer-info-box{
+        display: none;
+    }
+
+    .footer-link-list li + li{
+        margin-top: 6px;
+    }
+
+    .footer-logo img{
+        width: 160px;
+    }
+
+    .footer-logo p{
+        font-size: 13px;
+    }
+
+    .footer-cs-box strong{
+        text-decoration: underline;
+    }
+
+}
 
 
 
+/* 768px */
+@media (max-width:768px){
+    
+    .main-visual{
+        height: 100vh;
+        margin-bottom: 220px
+    }
+
+    .card1{
+        z-index:4;
+        opacity:1;
+        transform:translate(-50%, -48%) scale(1);
+    }
+
+    .card2{
+        z-index:3;
+        opacity:0.85;
+        transform:translate(-50%, -51%) rotate(-4deg) scale(0.95);
+    }
+
+    .card3{
+        z-index:2;
+        opacity:0.6;
+        transform:translate(-50%, -52%) scale(0.9);
+    }
+
+    .card4{
+        z-index:1;
+        opacity:0.35;
+        transform:translate(-50%, -53%) scale(0.85);
+    }
+
+    .card-text strong {
+        font-size: 30px;
+    }
+
+    .card-text p{
+        font-size: 18px;
+        margin-top: 5px;
+    }
+
+    .hashtag-list{
+        padding-left: 0;
+    }
+
+    .hashtag-list li{
+        padding: 0 15px;
+    }
+
+    .size-list span{
+        min-width: 35px;
+        padding: 0;
+    }
+}
+
+
+/* 500px */
+@media (max-width:500px){
+    .header{
+        height: 50px;
+    }
+
+    .header-inner{
+        height: 50px;
+    }
+
+    .main-visual{
+        height: 50vh;
+        margin-bottom: 170px;
+    }
+
+    .hashtag-section .inner{
+        padding-top: 0;
+    }
+
+    .card1{
+        z-index:4;
+        opacity:1;
+        transform:translate(-50%, -40%) scale(1);
+    }
+
+    .card2{
+        z-index:3;
+        opacity:0.85;
+        transform:translate(-50%, -43%) rotate(-4deg) scale(0.95);
+    }
+
+    .card3{
+        z-index:2;
+        opacity:0.6;
+        transform:translate(-50%, -44%) scale(0.9);
+    }
+
+    .card4{
+        z-index:1;
+        opacity:0.35;
+        transform:translate(-50%, -45%) scale(0.85);
+    }    
+
+
+    .btn-wish, .btn-cart{
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer-content{
+        font-size: 11px;
+    }
+
+    .footer-logo img{
+        width: 130px;
+    }
+
+    .footer-top{
+        margin-bottom: 10px;
+    }
+    
+    .footer-sns a{
+        width: 24px;
+        height: 24px;
+    }
+
+    .section-space{
+        padding-top: 40px;
+    }
+}
