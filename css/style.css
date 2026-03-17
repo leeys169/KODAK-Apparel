@@ -575,7 +575,7 @@ body{
     color: #b6b6b7;
     font-size: 14px;
     font-weight: 600;
-    letter-spacing: nowrap;
+    word-break: keep-all;
 }
 
 .tab-btn.active,
