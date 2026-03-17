@@ -870,6 +870,12 @@ body{
     display: flex;
     gap: 12px;
     margin-bottom: 35px;
+    overflow-x: auto;
+}
+
+.month-tab-menu .tab-btn{
+    white-space: nowrap;   /* 핵심 */
+    flex-shrink: 0;        /* 줄어들지 않게 */
 }
 
 .month-product-list{
@@ -1449,7 +1455,7 @@ body{
     /* --------------------------Weekly Best */
     .product-card{
         max-width:240px;
-        min-height:450px;
+        /* min-height:450px; */
     }
 
     .product-list{
@@ -1463,7 +1469,7 @@ body{
     }
 
     .product-btn{
-        bottom:50px;
+        bottom:0px;
         right:6px;
         padding:6px;
     }
