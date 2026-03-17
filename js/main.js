@@ -316,7 +316,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // offset 계산 함수
     const getOffset = () => {
         if (window.innerWidth <= 500) {
-            return 40; 
+            return 20; 
         } else if (window.innerWidth <= 1130) {
             return 40;
         } else if (window.innerWidth <= 1400) {
