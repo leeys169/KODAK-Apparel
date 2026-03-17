@@ -510,6 +510,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // ====================해시태그 스와이퍼 모바일=======================
     let hashtagSwiper;
 
+    function getHashtagOffset(){
+        const inner = document.querySelector(".inner");
+
+        if(window.innerWidth <= 500){
+            return 20;
+        }else if(window.innerWidth <= 1130){
+            return 40;
+        }else{
+            return inner.offsetLeft + parseInt(getComputedStyle(inner).paddingLeft);
+        }
+    }
+
     function initHashtagSwiper(){
 
         if(window.innerWidth <= 1130){
@@ -518,7 +530,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 hashtagSwiper = new Swiper(".hashtag-swiper",{
                     slidesPerView:"auto",
                     spaceBetween:20,
-                    freeMode:true
+                    freeMode:true,
+
+                    slidesOffsetBefore: getHashtagOffset() 
                 });
             }
         } else {
@@ -529,6 +543,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
+
     initHashtagSwiper();
     window.addEventListener("resize", initHashtagSwiper);
 

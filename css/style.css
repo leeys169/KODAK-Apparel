@@ -1492,8 +1492,8 @@ body{
     }
 
     .event-banner-item{
-        flex:none;
-        max-width:650px;
+        flex:1;         
+        max-width:none; 
     }
 
     /* --------------------이달의코닥 */
@@ -1694,15 +1694,22 @@ body{
     }
 
     /* --------------------해시태그 */
+    .hashtag-swiper{
+        width:100vw;
+        margin-left:calc(50% - 50vw);
+    }
+
     .hashtag-section .inner{
         padding-top: 40px;
+        padding-left:0;
+        padding-right:0;
     }
 
     .hashtag-list{
         flex-wrap:nowrap;        
         justify-content:flex-start; 
         gap:0;
-        padding-left:24px;
+        /* padding-left:24px; */
     }
 
     .hashtag-list li{
