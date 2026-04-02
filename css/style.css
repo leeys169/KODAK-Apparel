@@ -1444,6 +1444,13 @@ body{
         height: 75vh;
     }
 
+    .main-visual-control{
+        width: 100%;
+        padding: 0 20px;
+        /* left: 50%;
+        transform: translateX(-50%); */
+    }
+
     .main-visual-text{
         top: 50%;
     }
@@ -1524,7 +1531,8 @@ body{
 
     /* --------------------이벤트배너2 */
     .sub-progress-wrap{
-        width:1000px;
+        width: 90%;
+        max-width:1000px;
         margin:0 auto;
     }
 }
@@ -1644,13 +1652,15 @@ body{
 
     /* ---------------------메인비주얼 */
     .main-visual{
-        height:120vh;
+        height:80vh;
         margin-bottom:270px;
+        position: relative;
     }
 
     .main-visual-swiper{
         display:none !important;
     }
+
 
     .main-visual-card-wrap{
         position:relative;
@@ -2139,13 +2149,9 @@ body{
 
 }
 
-
-
 /* 768px */
 @media (max-width:768px){
-    
     .main-visual{
-        height: 100vh;
         margin-bottom: 220px
     }
 
